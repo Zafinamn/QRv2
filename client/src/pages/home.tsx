@@ -133,6 +133,71 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
+        {/* Other QR Generators Section */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Other QR Code Generators</h2>
+            <p className="text-muted-foreground">Compare with other popular QR code creation tools</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a 
+              href="https://qr-code-generator.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-card border border-border rounded-lg p-4 hover:bg-accent transition-colors text-center group"
+              data-testid="link-qr-generator-1"
+            >
+              <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary">QR Code Generator</h3>
+              <p className="text-sm text-muted-foreground">Free online QR code generator with custom colors</p>
+            </a>
+            
+            <a 
+              href="https://www.qrcode-monkey.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-card border border-border rounded-lg p-4 hover:bg-accent transition-colors text-center group"
+              data-testid="link-qr-generator-2"
+            >
+              <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary">QRCode Monkey</h3>
+              <p className="text-sm text-muted-foreground">Custom design QR codes with logos and colors</p>
+            </a>
+            
+            <a 
+              href="https://qr.io" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-card border border-border rounded-lg p-4 hover:bg-accent transition-colors text-center group"
+              data-testid="link-qr-generator-3"
+            >
+              <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary">QR.io</h3>
+              <p className="text-sm text-muted-foreground">Dynamic QR codes with analytics and tracking</p>
+            </a>
+            
+            <a 
+              href="https://www.the-qrcode-generator.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-card border border-border rounded-lg p-4 hover:bg-accent transition-colors text-center group"
+              data-testid="link-qr-generator-4"
+            >
+              <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary">The QR Code Generator</h3>
+              <p className="text-sm text-muted-foreground">Professional QR codes for business use</p>
+            </a>
+            
+            <a 
+              href="https://goqr.me" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-card border border-border rounded-lg p-4 hover:bg-accent transition-colors text-center group"
+              data-testid="link-qr-generator-5"
+            >
+              <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary">GoQR.me</h3>
+              <p className="text-sm text-muted-foreground">Simple and fast QR code creation</p>
+            </a>
+          </div>
+        </div>
       </main>
 
       {/* Footer */}
