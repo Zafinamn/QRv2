@@ -14,7 +14,7 @@ export default function Home() {
   const [qrConfig, setQRConfig] = useState<QRConfig>({
     content: 'https://example.com',
     size: 256,
-    errorCorrectionLevel: 'M',
+    errorCorrectionLevel: 'L',
     pixelDensity: 8,
     transparentBackground: false
   });
