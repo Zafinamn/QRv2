@@ -118,6 +118,101 @@ export default function QRConfigurationPanel({ config, onConfigChange }: QRConfi
             </div>
           </div>
           
+          {/* Color Customization */}
+          <div className="border-t border-border pt-4">
+            <h3 className="text-sm font-medium text-foreground mb-3">QR Code Colors</h3>
+            
+            <div className="grid grid-cols-2 gap-4">
+              {/* Dark Color (QR Code) */}
+              <div>
+                <Label className="text-sm font-medium text-foreground mb-2 block">
+                  QR Code Color
+                </Label>
+                <div className="flex items-center space-x-3">
+                  <input
+                    type="color"
+                    value={config.darkColor}
+                    onChange={(e) => onConfigChange({ darkColor: e.target.value })}
+                    className="w-12 h-10 rounded-md border border-input cursor-pointer"
+                    data-testid="input-dark-color"
+                  />
+                  <input
+                    type="text"
+                    value={config.darkColor}
+                    onChange={(e) => onConfigChange({ darkColor: e.target.value })}
+                    placeholder="#000000"
+                    className="flex-1 px-3 py-2 text-sm border border-input rounded-md"
+                    data-testid="input-dark-color-text"
+                  />
+                </div>
+              </div>
+              
+              {/* Light Color (Background) */}
+              <div>
+                <Label className="text-sm font-medium text-foreground mb-2 block">
+                  Background Color
+                </Label>
+                <div className="flex items-center space-x-3">
+                  <input
+                    type="color"
+                    value={config.lightColor}
+                    onChange={(e) => onConfigChange({ lightColor: e.target.value })}
+                    className="w-12 h-10 rounded-md border border-input cursor-pointer"
+                    data-testid="input-light-color"
+                    disabled={config.transparentBackground}
+                  />
+                  <input
+                    type="text"
+                    value={config.transparentBackground ? 'Transparent' : config.lightColor}
+                    onChange={(e) => onConfigChange({ lightColor: e.target.value })}
+                    placeholder="#FFFFFF"
+                    className="flex-1 px-3 py-2 text-sm border border-input rounded-md"
+                    disabled={config.transparentBackground}
+                    data-testid="input-light-color-text"
+                  />
+                </div>
+                {config.transparentBackground && (
+                  <p className="text-xs text-muted-foreground mt-1">Background is transparent</p>
+                )}
+              </div>
+            </div>
+            
+            {/* Color Presets */}
+            <div className="mt-4">
+              <Label className="text-sm font-medium text-foreground mb-2 block">Popular Color Combinations</Label>
+              <div className="grid grid-cols-4 gap-2">
+                {[
+                  { dark: '#000000', light: '#FFFFFF', name: 'Classic' },
+                  { dark: '#FFFFFF', light: '#000000', name: 'Inverted' },
+                  { dark: '#3B82F6', light: '#FFFFFF', name: 'Blue' },
+                  { dark: '#EF4444', light: '#FFFFFF', name: 'Red' },
+                  { dark: '#10B981', light: '#FFFFFF', name: 'Green' },
+                  { dark: '#F59E0B', light: '#FFFFFF', name: 'Orange' },
+                  { dark: '#8B5CF6', light: '#FFFFFF', name: 'Purple' },
+                  { dark: '#EC4899', light: '#FFFFFF', name: 'Pink' }
+                ].map((preset) => (
+                  <button
+                    key={preset.name}
+                    onClick={() => onConfigChange({ 
+                      darkColor: preset.dark, 
+                      lightColor: preset.light 
+                    })}
+                    className="flex flex-col items-center p-2 rounded-md border border-input hover:bg-accent transition-colors"
+                    data-testid={`button-preset-${preset.name.toLowerCase()}`}
+                  >
+                    <div 
+                      className="w-6 h-6 rounded border border-input mb-1"
+                      style={{ 
+                        background: `linear-gradient(45deg, ${preset.dark} 50%, ${preset.light} 50%)` 
+                      }}
+                    />
+                    <span className="text-xs text-muted-foreground">{preset.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+          
           {/* Advanced Options */}
           <div className="border-t border-border pt-4">
             <h3 className="text-sm font-medium text-foreground mb-3">Advanced Options</h3>

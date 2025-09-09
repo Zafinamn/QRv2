@@ -8,6 +8,8 @@ export interface QRConfig {
   errorCorrectionLevel: 'L' | 'M' | 'Q' | 'H';
   pixelDensity: number;
   transparentBackground: boolean;
+  darkColor: string;
+  lightColor: string;
 }
 
 export default function Home() {
@@ -16,7 +18,9 @@ export default function Home() {
     size: 256,
     errorCorrectionLevel: 'L',
     pixelDensity: 8,
-    transparentBackground: false
+    transparentBackground: false,
+    darkColor: '#000000',
+    lightColor: '#FFFFFF'
   });
 
   const canvasRef = useRef<HTMLCanvasElement>(null);

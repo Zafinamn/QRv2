@@ -28,8 +28,8 @@ export default function QRPreviewPanel({ config, canvasRef }: QRPreviewPanelProp
         width: config.size,
         margin: 2,
         color: {
-          dark: '#000000',
-          light: config.transparentBackground ? '#00000000' : '#FFFFFF'
+          dark: config.darkColor,
+          light: config.transparentBackground ? '#00000000' : config.lightColor
         },
         errorCorrectionLevel: config.errorCorrectionLevel
       });
